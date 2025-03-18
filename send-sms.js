@@ -1,7 +1,12 @@
 const SibApiV3Sdk = require('sib-api-v3-sdk');
 
+// Hardcoded SendinBlue API Key
+const apiKey = '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';  // Replace with your actual SendinBlue API Key
+
+// Hardcoded phone number (replace with the phone number to which you want to send SMS)
+const phoneNumber = '+44 07564222605'; // Replace with the phone number (in international format)
+
 // Initialize SendinBlue API
-const apiKey = process.env.SENDINBLUE_API_KEY;  // Your SendinBlue API key
 SibApiV3Sdk.ApiClient.instance.authentications['api-key'].apiKey = apiKey;
 
 // Create an instance of the SMS API
@@ -9,7 +14,6 @@ const smsApi = new SibApiV3Sdk.TransactionalSMSApi();
 
 module.exports = async (req, res) => {
   if (req.method === 'POST') {
-    const phoneNumber = process.env.PHONE_NUMBER;  // Phone number to receive SMS
     const message = 'Hello, this is a free test message from your website!';
 
     const sendSMSG = {

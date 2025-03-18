@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Sender</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #status {
+            font-size: 16px;
+            margin-top: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Send SMS Example</h1>
+        <button id="startButton">Start</button>
+        <button id="stopButton">Stop</button>
+        <div id="status"></div>
+    </div>
+
+    <script>
+        document.getElementById("startButton").onclick = function() {
+            // Send a request to the server to send an SMS
+            fetch("/api/send-sms", { method: "POST" })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("status").textContent = "Message sent successfully!";
+                })
+                .catch(error => {
+                    document.getElementById("status").textContent = "Error sending message.";
+                });
+        };
+
+        document.getElementById("stopButton").onclick = function() {
+            document.getElementById("status").textContent = "Process stopped.";
+        };
+    </script>
+</body>
+</html>

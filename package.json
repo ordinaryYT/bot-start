@@ -1,0 +1,16 @@
+{
+  "name": "sms-sender",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "vercel build",
+    "deploy": "vercel deploy"
+  },
+  "dependencies": {
+    "twilio": "^3.69.0"
+  },
+  "devDependencies": {
+    "vercel": "^27.0.0"
+  }
+}

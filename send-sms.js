@@ -25,7 +25,7 @@ module.exports = async (req, res) => {
     try {
       // Send SMS using SendinBlue API
       const response = await smsApi.sendTransacSms(sendSMSG);
-      
+
       // Check the response for success
       if (response && response.message) {
         res.status(200).json({ status: 'Message sent successfully!' });

@@ -1,16 +1,11 @@
 {
   "name": "sms-sender",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "dev": "vercel dev",
-    "build": "vercel build",
-    "deploy": "vercel deploy"
+    "dev": "vercel dev", // For local development
+    "build": "echo 'No build process required'" // No build process required
   },
   "dependencies": {
-    "twilio": "^3.69.0"
-  },
-  "devDependencies": {
-    "vercel": "^27.0.0"
+    "sib-api-v3-sdk": "^8.2.0"
   }
 }
